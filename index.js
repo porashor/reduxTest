@@ -36,3 +36,20 @@ function ADU(){
         payload : {name: "ananya"}
     }
 }
+
+
+//reducer function cerating 
+
+function CRE(state = counterState, action){
+    if(action.type === Increment){
+        return{
+            ...state,
+            count : state.count += 1
+        }
+    }else if(action.type === Decrement){
+        return{
+            ...state,
+            count : state.count -= 1
+        }
+    }
+}

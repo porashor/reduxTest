@@ -9,7 +9,8 @@ const {createStore} = require("redux")
 const incre = "Increment"
 const decre = "Decrement"
 const Rest = "Reset"
-
+const InV = "incrementValue"
+const valuea = 700
 const initState = {count: 0}
 
 function In(){
@@ -28,6 +29,14 @@ function Re(){
     }
 }
 
+//action with payload
+function Par(value){
+    return{
+        type: InV,
+        payload: value
+    }
+}
+
 function redu(state = initState, action){
     if(action.type === incre){
         return{
@@ -39,6 +48,11 @@ function redu(state = initState, action){
         return{
             ...state,
             count: state.count -= 1 
+        }
+    }else if(action.type === InV){
+        return{
+            ...state,
+            count: state.count + action.payload
         }
     }
     else if(action.type === Rest){
@@ -61,9 +75,7 @@ store.subscribe((a)=>{
 
 
 store.dispatch(In())
-store.dispatch(In())
-store.dispatch(In())
-store.dispatch(In())
-store.dispatch(Re())
+store.dispatch(Par(1000))
+
 
 

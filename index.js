@@ -1,3 +1,6 @@
+const {createStore} = require("redux")
+
+
 //state defining
 const counterState = {
     count :  0
@@ -53,3 +56,21 @@ function CRE(state = counterState, action){
         }
     }
 }
+
+
+
+//some require store mathod-- subscribe(),getState(),dispatch()
+//finally creating the store 
+const store = createStore(CRE)
+
+store.subscribe(()=>{
+    console.log(store.getState())
+})
+
+
+//dispactching the action
+
+store.dispatch(INC())
+store.dispatch(INC())
+store.dispatch(INC())
+store.dispatch(DEC())
